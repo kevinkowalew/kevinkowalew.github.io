@@ -57,6 +57,9 @@ const experiences = [
 ];
 
 const App = () => {
+	useEffect(() => {
+		document.title = 'Kevin Kowalewski';
+	}, []);
 	const gradientBackground = {
 		background: 'linear-gradient(135deg, #FF5F6D 0%, #FFC371 100%)',
 		minHeight: '100vh',
