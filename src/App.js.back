@@ -1,0 +1,153 @@
+import React from 'react';
+import {Box, Typography, Grid, Chip, Card, CardContent, CardMedia, IconButton} from '@mui/material';
+import Navbar from './components/Navbar';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import './App.css';
+
+const experiences = [
+	{
+		company: 'CrowdStrike',
+		role: 'Senior Software Engineer',
+		duration: 'Sep 2022 - Present',
+		image: 'https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_2/lnhffj3pvssvznq8wbuc',
+		technologies: ['Go', 'Python', 'K8s', 'AWS', 'Grafana', 'Graphite', 'Kafka', 'Cassandra', 'ElasticSearch', 'Chef'],
+	},
+	{
+		company: 'Sprout Social',
+		role: 'Senior Software Engineer',
+		duration: 'Jun 2020 - Sep 2022',
+		image: 'https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_2/v1438619962/qym7nmwnmx4qvfge8c9a.png',
+		technologies: ['Java', 'Python', 'K8s', 'AWS', 'MySql', 'ElasticSearch', 'Hadoop Tooling', 'Hbase'],
+	},
+	{
+		company: 'Eversnap',
+		role: 'Software Engineering Intern',
+		duration: 'Jun 2020 - Sep 2022',
+		image: 'https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_2/npgx5ynluzq6rgqtxfzd',
+		technologies: ['JavaScript', 'TypeScript', 'Angular', 'Sass'],
+	},
+	{
+		company: 'Deckstr',
+		role: 'Software Engineer Intern',
+		duration: 'Jun 2015 - Jun 2016',
+		image: 'https://images.crunchbase.com/image/upload/c_pad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_2/v1497559727/npw4ueeyk7tbozyxonjb.jpg',
+		technologies: ['JavaScript', 'TypeScript', 'Angular', 'Sass'],
+	},
+];
+
+const App = () => {
+	const gradientBackground = {
+		background: 'linear-gradient(135deg, #FF5F6D 0%, #FFC371 100%)',
+		minHeight: '100vh',
+		paddingTop: '64px',
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'center',
+	};
+
+	const sectionStyle = {
+		minHeight: '100vh',
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		padding: '20px',
+		textAlign: 'center',
+	};
+
+	return (
+		<Box sx={gradientBackground}>
+			<Navbar />
+			<Box id="about" sx={sectionStyle}>
+				<Typography variant="body1" color="white" sx={{maxWidth: '800px', marginTop: '20px'}}>
+					<img className="avatar" src="https://avatars.githubusercontent.com/u/9099021?v=4" />
+					<h1>Hi 👋 I'm Kevin</h1>
+					🔭 I currently work on the SRE team at CrowdStrike supporting their Cloud Platform.
+
+					🌱 I’m currently learning about Distrubuted Systems, Hadoop Tooling, Go and Linux.
+
+					🎸 Outside of work I enjoy practicing guitar, contributing to open source projects and running.
+				</Typography>
+			</Box>
+			<Box id="resume" sx={sectionStyle}>
+				<Grid container spacing={4} justifyContent="center">
+					{experiences.map((experience, index) => (
+						<Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+							<Card sx={{maxWidth: 345, backgroundColor: 'rgba(255, 255, 255, 0.8)'}}>
+								<CardMedia
+									component="img"
+									height="140"
+									image={experience.image}
+									alt={`${experience.company} logo`}
+									sx={{padding: "1em 1em 0 1em", objectFit: "contain"}}
+								/>
+								<CardContent>
+									<Typography gutterBottom variant="h5" component="div">
+										{experience.company}
+									</Typography>
+									<Typography variant="body2" color="text.secondary">
+										{experience.role}
+									</Typography>
+									<Typography variant="body2" color="text.secondary">
+										{experience.duration}
+									</Typography>
+
+									<Box sx={{marginTop: '10px'}}>
+										<Typography variant="body2" color="text.secondary" sx={{fontWeight: 'bold'}}>
+											Technologies:
+										</Typography>
+										<Box sx={{marginTop: '5px'}}>
+											{experience.technologies.map((tech, techIndex) => (
+												<Chip key={techIndex} label={tech} sx={{margin: '2px'}} />
+											))}
+										</Box>
+									</Box>
+								</CardContent>
+							</Card>
+						</Grid>
+					))}
+				</Grid>
+			</Box>
+			<Box id="contact" sx={sectionStyle}>
+				<Box sx={{marginTop: '20px'}}>
+					<Typography variant="h4" color="white">
+						+1 (507) 581 3477
+					</Typography>
+					<Typography variant="h4" color="white">
+						kowalewski.ke@gmail.com
+					</Typography>
+					<Box sx={{marginTop: '10px', display: 'flex', justifyContent: 'center', gap: '20px'}}>
+						<IconButton
+							component="a"
+							href="https://www.linkedin.com/in/kowalewskik/"
+							target="_blank"
+							color="inherit"
+						>
+							<LinkedInIcon sx={{fontSize: 40, color: 'white'}} />
+						</IconButton>
+						<IconButton
+							component="a"
+							href="https://github.com/kevinkowalew"
+							target="_blank"
+							color="inherit"
+						>
+							<GitHubIcon sx={{fontSize: 40, color: 'white'}} />
+						</IconButton>
+						<IconButton
+							component="a"
+							href="mailto:kowalewski.ke@gmail.com"
+							color="inherit"
+						>
+							<MailOutlineIcon sx={{fontSize: 40, color: 'white'}} />
+						</IconButton>
+					</Box>
+				</Box>
+			</Box>
+		</Box >
+	);
+};
+
+export default App;
+
