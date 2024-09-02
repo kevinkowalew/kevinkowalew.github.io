@@ -83,9 +83,9 @@ const App = () => {
 				<Typography variant="body1" color="white" sx={{maxWidth: '800px', marginTop: '20px'}}>
 					<img className="avatar" alt="avatar" src="https://avatars.githubusercontent.com/u/9099021?v=4" />
 					<h1>Hi 👋 I'm Kevin</h1>
-					<body>
-						A software engineer working remotely out of Chicago, IL.  I have over 6 years of industry experience building distributed systems at scale.  I have extensive experience with elastic systems and am constantly learning about emerging technologies in the Cloud Native space.  Outside of work, I enjoy spending time with my dog, playing guitar and weighlifting.
-					</body>
+					<h2>
+						A software engineer working remotely out of Chicago, IL.  I have over 6 years of industry experience building distributed systems at scale.  I have extensive experience with elastic systems and am constantly learning about emerging technologies in the Cloud Native space.  Outside of work, I enjoy spending time with my dog, playing guitar and exercising.
+					</h2>
 				</Typography>
 			</Box>
 			<Box id="resume" sx={sectionStyle}>
